@@ -8,6 +8,7 @@ var extend = require('extend');
 var defaultRequestOptions = {
     'method': 'GET',
     'enableSSL': false,
+    'elapsedOnIncoming': true,
     'headers': {
         'Connection': 'close'
     }
@@ -22,6 +23,7 @@ exports = module.exports = function(options, callback) {
 
     var protocol = (options.enableSSL) ? https : http;
     var request = protocol.request(options, function(response) {
+        if(options.elapsedOnIncoming) response.elapsed = process.hrtime(start)[1] / 1000000;
         response.setEncoding('utf8');
         response.body = '';
         response.on('data', function(data) {
@@ -29,7 +31,7 @@ exports = module.exports = function(options, callback) {
         });
 
         response.on('end', function() {
-            response.elapsed = process.hrtime(start)[1] / 1000000; // in milliseconds
+            if(!options.elapsedOnIncoming) response.elapsed = process.hrtime(start)[1] / 1000000;
             return callback(null, response);
         });
     });
