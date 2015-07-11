@@ -28,6 +28,8 @@ request(opt, function(err, response) {
 
 ## Version history
 
+* 0.0.2 - 11 July 2015
+  * Cleaned up code
 * 0.0.1 - 11 July 2015
   * First release
 
