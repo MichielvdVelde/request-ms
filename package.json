@@ -1,0 +1,18 @@
+{
+  "name": "request-ms",
+  "description": "A simple module that allows you to measure the response time for simple GET requests.",
+  "keywords": [
+    "request",
+    "get",
+    "http",
+    "response",
+    "time"
+  ],
+  "version": "0.0.1",
+  "main": "request.js",
+  "author": "Michiel van der Velde <michiel@michielvdvelde.nl>",
+  "license": "MIT",
+  "dependencies": {
+    "extend": "^3.0.0"
+  }
+}
