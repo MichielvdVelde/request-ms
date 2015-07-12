@@ -5,43 +5,43 @@ var https = require('https');
 
 var extend = require('extend');
 
-var defaultRequestOptions = {
-    'method': 'GET',
-    'enableSSL': false,
-    'elapsedOnIncoming': true,
+/**
+ * Default options for the request.
+ * These options are extend()'ed by the main method.
+**/
+var defaultOptions = {
+    'protocol': 'http:',
+    'method': 'HEAD',
     'headers': {
         'Connection': 'close'
     }
 };
 
+/**
+ * Request method. The callback uses the default (error, response) style.
+ * The options are extend()'ed with the defaultOptions above.
+ * Returns an http(s) error or a default http(S) response with the
+ * `response.elapsed` var added whith contains the response time in ms.
+**/
 exports = module.exports = function(options, callback) {
 
-    var start;
-
+    var elapsed = 0;
     if(typeof options === 'string') options = url.parse(options);
-    options = extend(true, defaultRequestOptions, options);
+    options = extend(true, defaultOptions, options);
+    if(!options.port) options.port = (options.protocol == 'https:') ? 443 : 80;
+    var protocol = (options.protocol == 'https:') ? https : http;
 
-    var protocol = (options.enableSSL) ? https : http;
     var request = protocol.request(options, function(response) {
-        if(options.elapsedOnIncoming) response.elapsed = process.hrtime(start)[1] / 1000000;
-        response.setEncoding('utf8');
-        response.body = '';
-        response.on('data', function(data) {
-            response.body += data;
-        });
-
-        response.on('end', function() {
-            if(!options.elapsedOnIncoming) response.elapsed = process.hrtime(start)[1] / 1000000;
-            return callback(null, response);
-        });
+        response.elapsed = process.hrtime(elapsed)[1] / 1000000;
+        return callback(null, response);
     });
 
-    request.on('socket', function (response) {
-        start = process.hrtime();
-    });
-
-    request.on('error', function (error) {
+    request.on('error', function(error) {
         return callback(error);
+    });
+
+    request.on('socket', function(error) {
+        elapsed = process.hrtime();
     });
 
     request.end();

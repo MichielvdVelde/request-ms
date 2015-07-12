@@ -1,6 +1,7 @@
 {
   "name": "request-ms",
-  "description": "A simple module that allows you to measure the response time for simple GET requests.",
+  "version": "0.2.1",
+  "description": "A simple module that allows you to measure the response time with simple HEAD request",
   "keywords": [
     "request",
     "get",
@@ -8,9 +9,16 @@
     "response",
     "time"
   ],
-  "version": "0.0.3",
   "main": "request.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichielvdVelde/request-ms"
+  },
   "author": "Michiel van der Velde <michiel@michielvdvelde.nl>",
+  "bugs": {
+    "url": "https://github.com/MichielvdVelde/request-ms/issues"
+  },
+  "homepage": "https://github.com/MichielvdVelde/request-ms",
   "license": "MIT",
   "dependencies": {
     "extend": "^3.0.0"
