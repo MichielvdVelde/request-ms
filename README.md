@@ -27,6 +27,8 @@ This module is currently in active development and may change from time to time.
     * `enabled`: whether or not the time-out is enabled (default is `false`)
     * `when`: the time-out time in ms (default is `2500`, or 2.5s)
 
+* `callback(error, response)`
+
 ## Example
 
 `request-ms` is easy to use, as you can see in this example:
