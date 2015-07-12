@@ -18,12 +18,27 @@ var defaultOptions = {
 };
 
 /**
+ * Settings options. For now only timeout settings :)
+**/
+var defaultSetOptions = {
+    'timeout': {
+        'enabled': false,
+        'when': 2500
+    }
+};
+
+/**
  * Request method. The callback uses the default (error, response) style.
  * The options are extend()'ed with the defaultOptions above.
  * Returns an http(s) error or a default http(S) response with the
  * `response.elapsed` var added whith contains the response time in ms.
 **/
-exports = module.exports = function(options, callback) {
+exports = module.exports = function(options, setOptions, callback) {
+    if(!callback && typeof setOptions === 'function') {
+        callback = setOptions;
+        setOptions = {};
+    }
+    setOptions = extend(true, defaultSetOptions, setOptions);
 
     var elapsed = 0;
     if(typeof options === 'string') options = url.parse(options);
@@ -36,12 +51,20 @@ exports = module.exports = function(options, callback) {
         return callback(null, response);
     });
 
+    if(setOptions.timeout.enabled) {
+        request.setTimeout(setOptions.timeout.when);
+    }
+
     request.on('error', function(error) {
         return callback(error);
     });
 
     request.on('socket', function(error) {
         elapsed = process.hrtime();
+    });
+
+    request.on('timeout', function(error) {
+        return callback(new Error('Request timed out'));
     });
 
     request.end();
