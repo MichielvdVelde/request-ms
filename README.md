@@ -6,7 +6,7 @@
 
 This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
 
-This module is currently in active development and may change from time to time. I will attampt to document all changes as best as I can for the sake of clarity.
+This module is currently in active development and may change from time to time. I will attempt to document all changes as best as I can for the sake of clarity.
 
 ## Install
 
