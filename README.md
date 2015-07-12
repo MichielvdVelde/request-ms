@@ -12,9 +12,22 @@ This module is currently in active development and may change from time to time.
 
     npm install request-ms --save
 
-## Example
+## Usage
 
     request(requestOptions, [settingsOptions, ]callback);
+
+* `requestOptions`:
+  * `protocol`: the protocol to use (`http:` or `https:`, defaults to `http:`)
+  * `method`: the method to use (defaults to `HEAD`)
+  * `headers`: the headers to send
+    * `Connection: close` is the default Connection header
+
+* `settingsOptions`:
+  * `timeout`: an object representing time-out settings
+    * `enabled`: whether or not the time-out is enabled (default is `false`)
+    * `when`: the time-out time in ms (default is `2500`, or 2.5s)
+
+## Example
 
 `request-ms` is easy to use, as you can see in this example:
 
