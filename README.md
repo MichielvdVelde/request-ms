@@ -2,7 +2,9 @@
 
 **Note:** version 0.2.1 has breaking changes compared to 0.0.x!
 
-`request-ms` is a simple and easy to use module for measuring the response time for HTTP(S) requests. request-ms send a HEAD request and measures the response time of the remote endpoint, which it returns as an extra variable (`response.elapsed`) in the response. This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
+`request-ms` is a simple and easy to use module for measuring the response time for HTTP(S) requests. request-ms sends a HEAD request and measures the response time of the remote endpoint, which it returns as an extra variable (`response.elapsed`) in the response.
+
+This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
 
 This module is currently in active development and may change from time to time. I will attampt to document all changes as best as I can for the sake of clarity.
 
@@ -23,7 +25,7 @@ request({ 'hostname': 'google.com', 'path': '/' }, function(err, response) {
     console.log('HEAD %s%s - %d - %dms', options.hostname, options.path, response.statusCode, response.elapsed);
 });
 
-// Or pass a string
+// ... or pass a string
 request('http://google.com', function(err, response) {
     if(err) return console.log(err);
     console.log('HEAD %s%s - %d - %dms', options.hostname, options.path, response.statusCode, response.elapsed);
