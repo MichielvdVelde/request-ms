@@ -14,6 +14,8 @@ This module is currently in active development and may change from time to time.
 
 ## Example
 
+    request(requestOptions, [settingsOptions, ]callback);
+
 `request-ms` is easy to use, as you can see in this example:
 
 ```js
@@ -30,15 +32,24 @@ request('http://google.com', function(err, response) {
     if(err) return console.log(err);
     console.log('HEAD google.com - %d - %dms', response.statusCode, response.elapsed);
 });
+
+// If we want to set a timeout we can do that:
+request('http://google.com', { 'timeout': { 'enabled': true, 'when': 2500 } }, function(err, response) {
+    if(err) return console.log(err);
+    console.log('HEAD google.com - %d - %dms', response.statusCode, response.elapsed);
+});
 ```
 Which outputs something along the lines of:
 
-    HEAD google.com/ - 302 - 50.235131ms
+    HEAD google.com - 302 - 50.235131ms
 
 An error can be any of the standaard HTTP(S) node.js errors. The response object is passed on success as the second argument.
 
 ## Version history
 
+* 0.2.2 - 12 July 2015
+  * Added `settingsOptions` which allows for extra options.
+  * `settingsOptions` now supports timeouts. By default the timeout is disabled and `when` (see example) is set to 2500(ms)
 * 0.2.1 - 12 July 2015
   * Refactored codebase and re-implemented several features
   * Switched from GET to HEAD as default method
