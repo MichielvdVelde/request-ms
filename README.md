@@ -1,6 +1,6 @@
 # request-ms
 
-**Note:** version 0.2.1 has breaking changes compared to 0.0.x!
+**Note:** version 0.2.x has breaking changes compared to 0.0.x!
 
 `request-ms` is a simple and easy to use module for measuring the response time for HTTP(S) requests. request-ms sends a HEAD request and measures the response time of the remote endpoint, which it returns as an extra variable (`response.elapsed`) in the response.
 
