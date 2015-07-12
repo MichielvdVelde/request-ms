@@ -22,13 +22,13 @@ var request = require('request-ms');
 // You can either call using an object conforming to options from the HTTP(S) module...
 request({ 'hostname': 'google.com', 'path': '/' }, function(err, response) {
     if(err) return console.log(err);
-    console.log('HEAD %s%s - %d - %dms', options.hostname, options.path, response.statusCode, response.elapsed);
+    console.log('HEAD google.com - %d - %dms', response.statusCode, response.elapsed);
 });
 
 // ... or pass a string
 request('http://google.com', function(err, response) {
     if(err) return console.log(err);
-    console.log('HEAD %s%s - %d - %dms', options.hostname, options.path, response.statusCode, response.elapsed);
+    console.log('HEAD google.com - %d - %dms', response.statusCode, response.elapsed);
 });
 ```
 Which outputs something along the lines of:
