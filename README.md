@@ -16,13 +16,13 @@ This module is currently in active development and may change from time to time.
 
     request(requestOptions, [settingsOptions, ]callback);
 
-* `requestOptions`:
+* `requestOptions`: the request options. Some defaults are set for you:
   * `protocol`: the protocol to use (`http:` or `https:`, defaults to `http:`)
   * `method`: the method to use (defaults to `HEAD`)
   * `headers`: the headers to send
     * `Connection: close` is the default Connection header
 
-* `settingsOptions`:
+* `settingsOptions`: the settings options. Defaults are set as follows:
   * `timeout`: an object representing time-out settings
     * `enabled`: whether or not the time-out is enabled (default is `false`)
     * `when`: the time-out time in ms (default is `2500`, or 2.5s)
@@ -62,9 +62,10 @@ An error can be any of the standaard HTTP(S) node.js errors. The response object
 
 ## Version history
 
-* 0.2.2 - 12 July 2015
-  * Added `settingsOptions` which allows for extra options.
-  * `settingsOptions` now supports timeouts. By default the timeout is disabled and `when` (see example) is set to 2500(ms)
+* 0.2.2 - 0.2.3 - 12 July 2015
+  * (0.2.3) Version bump to sync readme
+  * (0.2.2) Added `settingsOptions` which allows for extra options.
+  * (0.2.2) `settingsOptions` now supports timeouts. By default the timeout is disabled and `when` (see example) is set to 2500(ms)
 * 0.2.1 - 12 July 2015
   * Refactored codebase and re-implemented several features
   * Switched from GET to HEAD as default method
