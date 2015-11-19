@@ -49,7 +49,7 @@ request('http://google.com', function(err, response) {
 });
 
 // If we want to set a timeout we can do that:
-request('http://google.com', { 'timeout': { 'enabled': true, 'when': 2500 } }, function(err, response) {
+request('http://google.com', { 'timeout': 2500 }, function(err, response) {
     if(err) return console.log(err);
     console.log('HEAD google.com - %d - %dms', response.statusCode, response.elapsed);
 });
@@ -62,6 +62,9 @@ An error can be any of the standaard HTTP(S) node.js errors. The response object
 
 ## Version history
 
+* 0.3.0 - 19 November 2015
+  * Simplified timeout setting (now set `timeout` to a non-zero positive number in ms)
+  * Improved HTTP protocol check
 * 0.2.2 - 0.2.3 - 12 July 2015
   * (0.2.3) Version bump to sync readme
   * (0.2.2) Added `settingsOptions` which allows for extra options.
