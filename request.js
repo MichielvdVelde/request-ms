@@ -21,10 +21,7 @@ var defaultOptions = {
  * Settings options. For now only timeout settings :)
 **/
 var defaultSetOptions = {
-    'timeout': {
-        'enabled': false,
-        'when': 2500
-    }
+    'timeout': 2500
 };
 
 /**
@@ -51,8 +48,8 @@ exports = module.exports = function(options, setOptions, callback) {
         return callback(null, response);
     });
 
-    if(setOptions.timeout.enabled) {
-        request.setTimeout(setOptions.timeout.when);
+    if(setOptions.timeout && setOptions.timeout > 0) {
+        request.setTimeout(setOptions.timeout);
     }
 
     request.on('error', function(error) {
