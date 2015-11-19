@@ -1,7 +1,5 @@
 # request-ms
 
-**Note:** version 0.2.x has breaking changes compared to 0.0.x!
-
 `request-ms` is a simple and easy to use module for measuring the response time for HTTP(S) requests. request-ms sends a HEAD request and measures the response time of the remote endpoint, which it returns as an extra variable (`response.elapsed`) in the response.
 
 This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
@@ -23,9 +21,7 @@ This module is currently in active development and may change from time to time.
     * `Connection: close` is the default Connection header
 
 * `settingsOptions`: the settings options. Defaults are set as follows:
-  * `timeout`: an object representing time-out settings
-    * `enabled`: whether or not the time-out is enabled (default is `false`)
-    * `when`: the time-out time in ms (default is `2500`, or 2.5s)
+  * `timeout`: Tiemout in ms. Set to `0` for no timeout
 
 * `callback(error, response)`
 
