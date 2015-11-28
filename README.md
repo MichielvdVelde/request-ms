@@ -4,8 +4,6 @@
 
 This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
 
-This module is currently in active development and may change from time to time. I will attempt to document all changes as best as I can for the sake of clarity.
-
 ## Install
 
     npm install request-ms --save
@@ -19,11 +17,10 @@ This module is currently in active development and may change from time to time.
   * `method`: the method to use (defaults to `HEAD`)
   * `headers`: the headers to send
     * `Connection: close` is the default Connection header
+* `settingsOptions`: the settings options. Defaults are set as follows
+  * `timeout`: Timeout in ms. Set to `0` for no timeout
 
-* `settingsOptions`: the settings options. Defaults are set as follows:
-  * `timeout`: Tiemout in ms. Set to `0` for no timeout
-
-* `callback(error, response)`
+`callback` is in the usual node style `(error, response)`.
 
 ## Example
 
@@ -58,9 +55,13 @@ An error can be any of the standaard HTTP(S) node.js errors. The response object
 
 ## Version history
 
-* 0.3.0 - 19 November 2015
-  * Simplified timeout setting (now set `timeout` to a non-zero positive number in ms)
-  * Improved HTTP protocol check
+* 0.3.2 - 28 November 2015
+  * Less strict protocol handling
+  * Removed 'may change' note in readme
+* 0.3.0 - 3.0.1 - 19 November 2015
+  * (0.3.1) Bumped version to sync np readme
+  * (0.3.0) Simplified timeout setting (now set `timeout` to a non-zero positive number in ms)
+  * (0.3.0) Improved HTTP protocol check
 * 0.2.2 - 0.2.3 - 12 July 2015
   * (0.2.3) Version bump to sync readme
   * (0.2.2) Added `settingsOptions` which allows for extra options.

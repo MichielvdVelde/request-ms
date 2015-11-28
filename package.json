@@ -1,6 +1,6 @@
 {
   "name": "request-ms",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A simple module that allows you to measure the response time with simple HEAD request",
   "keywords": [
     "request",
