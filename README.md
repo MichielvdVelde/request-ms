@@ -4,11 +4,35 @@
 
 This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
 
+Also packaged is a handy CLI app with much of the capabilities as the module itself.
+
 ## Install
+
+### To use in your own modules
+
+If you don't need to use the CLI app, you can install the module locally:
 
     npm install request-ms --save
 
+### Use as CLI
+
+Install the module globally to get access to the CLI app:
+
+		npm install -g request-ms
+
 ## Usage
+
+### CLI
+
+    $> request-ms example.com
+
+What you will get is something similar to this:
+
+    HEAD example.com - 200 - 43.45643ms
+
+See the help (`request-ms -h`) for all available options.
+
+## In your own modules
 
     request(requestOptions, [settingsOptions, ]callback);
 
@@ -22,7 +46,7 @@ This module can for example be used for monitoring remote endpoint performance (
 
 `callback` is in the usual node style `(error, response)`.
 
-## Example
+### Example
 
 `request-ms` is easy to use, as you can see in this example:
 
@@ -51,15 +75,18 @@ Which outputs something along the lines of:
 
     HEAD google.com - 302 - 50.235131ms
 
-An error can be any of the standaard HTTP(S) node.js errors. The response object is passed on success as the second argument.
+An error can be any of the standard HTTP(S) node.js errors. The response object is passed on success as the second argument.
 
 ## Version history
 
+* 0.4.0 - 28 November 2015
+  * Added CLI capabilities
+  * Improved protocol type handling
 * 0.3.2 - 28 November 2015
   * Less strict protocol handling
   * Removed 'may change' note in readme
 * 0.3.0 - 3.0.1 - 19 November 2015
-  * (0.3.1) Bumped version to sync np readme
+  * (0.3.1) Bumped version to sync npm readme
   * (0.3.0) Simplified timeout setting (now set `timeout` to a non-zero positive number in ms)
   * (0.3.0) Improved HTTP protocol check
 * 0.2.2 - 0.2.3 - 12 July 2015
@@ -80,4 +107,4 @@ An error can be any of the standaard HTTP(S) node.js errors. The response object
 
 Copyright 2015 Michiel van der Velde.
 
-This software is licensed under the [MIT License](https://github.com/MichielvdVelde/request-ms/blob/master/LICENSE)
+This software is licensed under the [MIT License](LICENSE)
