@@ -1,8 +1,5 @@
 
 var url = require('url');
-var http = require('http');
-var https = require('https');
-
 var extend = require('extend');
 
 /**
@@ -42,7 +39,7 @@ exports = module.exports = function(options, setOptions, callback) {
 	if(options.protocol.indexOf(':') == -1) options.protocol += ':';
     options = extend(true, defaultOptions, options);
     if(!options.port) options.port = (options.protocol.indexOf('https') != -1) ? 443 : 80;
-    var protocol = (options.protocol.indexOf('https') != -1) ? https : http;
+    var protocol = (options.protocol.indexOf('https') != -1) ? require('https') : require('http');
 
     var request = protocol.request(options, function(response) {
         response.elapsed = process.hrtime(elapsed)[1] / 1000000;
