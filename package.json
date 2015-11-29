@@ -10,7 +10,7 @@
     "time"
   ],
   "main": "request.js",
-  "bin": "lib/request-ms.js",
+  "bin": "bin/request-ms.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/MichielvdVelde/request-ms"
