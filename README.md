@@ -81,7 +81,7 @@ An error can be any of the standard HTTP(S) node.js errors. The response object 
 
 * 0.4.1 - 29 November 2015
   * Renamed `lib` dir to `bin`, as per convention
-	* Node's http(s) module is now only loaded when needed
+  * Node's http(s) module is now only loaded when needed
 * 0.4.0 - 28 November 2015
   * Added CLI capabilities
   * Improved protocol type handling
