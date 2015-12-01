@@ -36,7 +36,9 @@ exports = module.exports = function(options, setOptions, callback) {
 
     var elapsed = 0;
     if(typeof options === 'string') options = url.parse(options);
+	if(!options.protocol) options.protocol = 'http:';
 	if(options.protocol.indexOf(':') == -1) options.protocol += ':';
+    if(!options.hostname) options.hostname = options.pathname;
     options = extend(true, defaultOptions, options);
     if(!options.port) options.port = (options.protocol.indexOf('https') != -1) ? 443 : 80;
     var protocol = (options.protocol.indexOf('https') != -1) ? require('https') : require('http');

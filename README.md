@@ -4,35 +4,15 @@
 
 This module can for example be used for monitoring remote endpoint performance (as in API health checks). It aims to be a small and unobtrusive module with the greatest amount of flexibility.
 
-Also packaged is a handy CLI app with much of the capabilities as the module itself.
+There is also a [CLI app](http://github.com/MichielvdVelde/request-ms-cli) which you can use from the command line.
 
 ## Install
-
-### To use in your own modules
 
 If you don't need to use the CLI app, you can install the module locally:
 
     npm install request-ms --save
 
-### Use as CLI
-
-Install the module globally to get access to the CLI app:
-
-		npm install -g request-ms
-
 ## Usage
-
-### CLI
-
-    $> request-ms example.com
-
-What you will get is something similar to this:
-
-    HEAD example.com - 200 - 43.45643ms
-
-See the help (`request-ms -h`) for all available options.
-
-## In your own modules
 
     request(requestOptions, [settingsOptions, ]callback);
 
@@ -46,7 +26,7 @@ See the help (`request-ms -h`) for all available options.
 
 `callback` is in the usual node style `(error, response)`.
 
-### Example
+## Example
 
 `request-ms` is easy to use, as you can see in this example:
 
@@ -79,6 +59,9 @@ An error can be any of the standard HTTP(S) node.js errors. The response object 
 
 ## Version history
 
+* 0.5.0
+  * Moved CLI app to [a separate package](http://github.com/MichielvdVelde/request-ms-cli)
+	* Added some additional checks (but still requires rewriting)
 * 0.4.1 - 29 November 2015
   * Renamed `lib` dir to `bin`, as per convention
   * Node's http(s) module is now only loaded when needed

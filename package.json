@@ -1,6 +1,6 @@
 {
   "name": "request-ms",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A simple module that allows you to measure the response time with simple HEAD request",
   "keywords": [
     "request",
@@ -10,7 +10,6 @@
     "time"
   ],
   "main": "request.js",
-  "bin": "bin/request-ms.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/MichielvdVelde/request-ms"
@@ -22,7 +21,6 @@
   "homepage": "https://github.com/MichielvdVelde/request-ms",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.9.0",
     "extend": "^3.0.0"
   }
 }
